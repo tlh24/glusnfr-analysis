@@ -24,9 +24,9 @@ if Abhi:
     axisNames[2] = ('Kd','binding affinity')
     axisNames[3] = ('Kon','response rise time, 1/sec')
     axisNames[4] = ('dF1','change in F, 1 action potential')
-    axisNames[5] = ('dk1','decay in F after 1 action potential')
+    axisNames[5] = ('Dk1','decay in F after 1 action potential')
     axisNames[6] = ('dF20','change in F after 20 action potentials')
-    axisNames[7] = ('dk20','decay in F after 20 action potentials')
+    axisNames[7] = ('Dk20','decay in F after 20 action potentials')
     axisNames[8] = ('Fitn','estimate of fitness based on dF/F and Kon')
 
     xaxis = 1
@@ -624,14 +624,14 @@ fid.write('''<defs
   </defs>''') # for a mid-point direction arrow
 labelStr = ''
 if Abhi:
-    doRegression(1, 108.0, fid, 'dF/F', 0.65)
+    doRegression(1, 108.0, fid, 'ΔF/F', 0.65)
     doRegression(2, 126.0, fid, 'Kd (um)', 0.5)
     doRegression(3, 144.0, fid, 'Kon', 0.6)
     doRegression(8, 162.0, fid, 'Fitness', 0.6)
 else: # doesn't work! 
-    labelStr = doDiffRegression(1, 108.0, fid, 'dF/F 1', False, labelStr)
-    labelStr = doDiffRegression(3, 118.0, fid, 'dF/F 10', False, labelStr)
-    labelStr = doDiffRegression(4, 128.0, fid, 'dF/F 160', False, labelStr)
+    labelStr = doDiffRegression(1, 108.0, fid, 'ΔF/F 1', False, labelStr)
+    labelStr = doDiffRegression(3, 118.0, fid, 'ΔF/F 10', False, labelStr)
+    labelStr = doDiffRegression(4, 128.0, fid, 'ΔF/F 160', False, labelStr)
     labelStr = doDiffRegression(5, 138.0, fid, 'Decay 1', False, labelStr)
     labelStr = doDiffRegression(7, 148.0, fid, 'Decay 10', False, labelStr)
     labelStr = doDiffRegression(8, 158.0, fid, 'Decay 160', True, labelStr)
@@ -1111,7 +1111,7 @@ fid.write(f'x="{50}" y="{4}">If things get confusing, reload (F5)</text>\n')
 
 if Abhi:
     fid.write('''<text style="font-size:1px; font-family:serif;text-anchor:end;text-align:end;writing-mode:lr;"\n 
-    x="161.5" y="99">\nData / protein engineering / etc by Abhi Aggarwal and Kaspar Podgorski.  Programming by Tim Hanson.  Artwork by Filip Tomaska.</text>\n''')
+    x="161.5" y="99">\nData / protein engineering / etc by Abhi Aggarwal and Kaspar Podgorski.  Programming & analysis by Tim Hanson.  </text>\n''')
     
     fid.write('<image x="122" y="66" width="40" height="30" xlink:href="filip_tattoo.svg" />\n')
     # fitness = \left(\frac{2}{1+e^{K_{on} / -500}} - 1\right) * \left(\frac{2}{1+e^{\Delta F F / -30}}-1\right)
