@@ -1,6 +1,6 @@
 [Click here for the GluSnFr mutation analysis tool!](https://tlh24.github.io/glusnfr-analysis/sniffer.html)
 
-This is a graphical representation for seeing how AA substitutions affect sensor properties, and was used to aid selection of mutations during the development of GluSnFR3.   Please see the main text for full details.
+This is a graphical tool for seeing how AA substitutions affect sensor properties, and was used to aid selection of mutations during the development of GluSnFR3.   Please see the main text for full details.
 
 ## Left Panel
 
