@@ -244,7 +244,7 @@ def doRegression(datacol, svgCol, fid, datacolName, zscoreThresh):
     for pos,st in subList:
         for aa in st.keys():
             cnt = st[aa]
-            subListFlat.append((pos, aa, cnt)) # these are location (zero based), AA, counttuples.
+            subListFlat.append((pos, aa, cnt)) # these are location (zero based), AA, count tuples.
     
     # get all entries where dff != 0.0
     nd = 0
@@ -256,14 +256,14 @@ def doRegression(datacol, svgCol, fid, datacolName, zscoreThresh):
             
     # need to make a binary vector indicating the presence or absence of a given amino acid for each sequence. 
     subMatrix = np.zeros((nSubs, nd))
-    nnd = 0 # for building below
+    nnd = 0 # aka column.  for building below
     dnp = np.zeros(nd) # dependent variables, numpy vector
     for col in fullseq.keys():
         (seq,vname,dat) = fullseq[col]
         d = dat[datacol]
         if d > 0.0:
             dnp[nnd] = d
-            ns = 0
+            ns = 0 # aka row
             for pos,st in subList:
                 for sb in st:
                     if seq[pos] == sb:
@@ -1113,7 +1113,7 @@ if Abhi:
     fid.write('''<text style="font-size:1px; font-family:serif;text-anchor:end;text-align:end;writing-mode:lr;"\n 
     x="161.5" y="99">\nData / protein engineering / etc by Abhi Aggarwal and Kaspar Podgorski.  Programming & analysis by Tim Hanson.  </text>\n''')
     
-    fid.write('<image x="122" y="66" width="40" height="30" xlink:href="filip_tattoo.svg" />\n')
+    # fid.write('<image x="122" y="66" width="40" height="30" xlink:href="filip_tattoo.svg" />\n')
     # fitness = \left(\frac{2}{1+e^{K_{on} / -500}} - 1\right) * \left(\frac{2}{1+e^{\Delta F F / -30}}-1\right)
     fid.write(f'<image x="98" y="93" width="44" height="4.4" xlink:href="fitness.svg" />\n')
 
